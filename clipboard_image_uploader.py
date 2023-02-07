@@ -8,7 +8,7 @@ DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1234567890/abcdefghijklm
 
 old_hash = 0
 delay = 1
-show_notification('Clipboard Image Uploader is running', 1)
+show_notification('Clipboard Image Uploader is running', 3)
 while True:
     sleep(delay)
     try:
@@ -27,6 +27,6 @@ while True:
         with open (IMAGE_SAVE_DIRECTORY + timestamp + '.png', 'rb') as f:
             webhook.add_file(file=f.read(), filename=timestamp + '.png')
         response = webhook.execute()
-        show_notification('Image saved and sent to discord', 1)
+        show_notification('Image saved and sent to discord', 3)
     except Exception as e:
-        show_notification('Error occurred: ' + e.args[0], 1)
+        show_notification('Error occurred: ' + e.args[0], 3)
